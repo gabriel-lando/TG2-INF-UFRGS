@@ -1,5 +1,4 @@
-%Template para TG2 ECP UFRGS
-%Author: Lucas Schnorr (Adaptado para overleaf por Rubens dos Santos)
+%
 % exemplo genérico de uso da classe iiufrgs.cls
 % $Id: iiufrgs.tex,v 1.1.1.1 2005/01/18 23:54:42 avila Exp $
 %
@@ -186,9 +185,9 @@ No início dos tempos, Donald E. Knuth criou o \TeX. Algum tempo depois, Leslie 
 
 \section{Figuras e tabelas}
 
-Esta seção faz referência às Figuras~\ref{fig:estrutura},~\ref{fig:ex2}, a título de exemplo. A primeira figura apresenta a estrutura de uma figura. A \emph{descrição} deve aparecer \textbf{acima} da figura. Abaixo da figura, deve ser indicado a origem da imagem, mesmo se essa for apenas os autores do texto.
+Esta seção faz referência às Figuras~\ref{fig:estrutura},~\ref{fig:ex1} e~\ref{fig:ex2}, a título de exemplo. A primeira figura apresenta a estrutura de uma figura. A \emph{descrição} deve aparecer \textbf{acima} da figura. Abaixo da figura, deve ser indicado a origem da imagem, mesmo se essa for apenas os autores do texto.
 
- A Figura~\ref{fig:ex2} exemplifica o uso do environment \texttt{picture}, para desenhar usando o próprio~\LaTeX.
+A Figura~\ref{fig:ex1} representa o caso mais comum, onde a figura propriamente dita é importada de um arquivo (neste exemplo em formato \texttt{eps} ou \texttt{pdf}. Veja a seção \ref{sec:fig_format}). A Figura~\ref{fig:ex2} exemplifica o uso do environment \texttt{picture}, para desenhar usando o próprio~\LaTeX.
 
 \begin{figure}[h]
     \caption{Descrição da Figura deve ir no topo}
@@ -206,6 +205,13 @@ Esta seção faz referência às Figuras~\ref{fig:estrutura},~\ref{fig:ex2}, a t
     \end{center}
     \label{fig:estrutura}
     \legend{Fonte: Os Autores}
+\end{figure}
+
+\begin{figure}
+    \caption{Exemplo de figura importada de um arquivo e também exemplo de caption muito grande que ocupa mais de uma linha na Lista~de~Figuras}
+    \centerline{\includegraphics[width=8em]{fig}}
+    \legend{Fonte: Os Autores}
+    \label{fig:ex1}
 \end{figure}
 
 % o `[h]' abaixo é um parâmetro opcional que sugere que o LaTeX coloque a

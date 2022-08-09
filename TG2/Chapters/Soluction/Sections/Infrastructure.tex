@@ -1,0 +1,24 @@
+
+Para a realização dos experimentos e validação dos resultados, foi utilizada uma máquina virtual hospedada no \textit{software VMWare Workstation 16 Pro} sobre o sistema operacional \textit{Windows 11 Pro}.
+
+A máquina virtual executava o sistema operacional Ubuntu Server 20.04.4 LTS e possuía 16 núcleos virtuais de um processador \textit{Intel Core i9 12900}, 32 GB de memória RAM DDR5-4800 e um disco virtual de 64 GB armazenado em um SSD M.2 NVMe.
+Detalhes resumidos da máquina virtual podem ser vistos na Tabela \ref{tab:vm-config}.
+
+Para a execução dos experimentos, foi criada uma imagem de base da máquina virtual pré configurada, que era restaurada ao fim de cada execução do experimento, evitando que resquícios de uma execução anterior pudessem afetar outras execuções do experimento.
+Além disso, também foi utilizado o sistema de conteinerização \textit{Docker}\footnote{https://www.docker.com/} para isolar os componentes do núcleo da rede 5G e do testador.
+
+\begin{table}[]
+\centering
+\caption{Configuração da máquina de testes}
+\label{tab:vm-config}
+\begin{tabular}{lr}
+\hline
+                       & \multicolumn{1}{c}{\textbf{Máquina Virtual}} \\ \hline
+\textbf{CPU}                 & \begin{tabular}[c]{@{}r@{}}Intel Core i9 12900\\ @ 2.4 GHz e 16 núcleos\end{tabular} \\ \hline
+\textbf{Memória RAM}   & 32 GB DDR5-4800                              \\ \hline
+\textbf{Armazenamento} & SSD M.2 64 GB NVMe                           \\ \hline
+\textbf{Sistema Operacional} & \multicolumn{1}{l}{Ubuntu Server 20.04.4 LTS}                                       
+\end{tabular}
+\end{table}
+
+

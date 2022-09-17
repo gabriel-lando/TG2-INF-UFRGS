@@ -38,6 +38,10 @@
 % Necessário para incluir figuras
 \usepackage{graphicx}           % pacote para importar figuras
 
+% Multirow é usado pras tabelas
+\usepackage{multirow}
+% Float é usado pro [H] nas figuras
+\usepackage{float}
 
 \usepackage{times}              % pacote para usar fonte Adobe Times
 % \usepackage{palatino}
@@ -48,15 +52,15 @@
 %
 % Informações gerais
 %
-\title{Um Exemplo de Monografia do Instituto de Informática da UFRGS}
+\title{Um método para avaliação de desempenho de implementações \textit{open source} em software de núcleos de rede 5G}
 
-\author{Flaumann}{Fritz Gutenberg}
+\author{Lando}{Gabriel}
 % alguns documentos podem ter varios autores:
 %\author{Flaumann}{Frida Gutenberg}
 %\author{Flaumann}{Klaus Gutenberg}
 
 % orientador e co-orientador são opcionais (não diga isso pra eles :))
-\advisor[Prof.~Dr.]{Lamport}{Leslie}
+\advisor[Prof.~Dr.]{Wickboldt}{Juliano}
 %\coadvisor[Prof.~Dr.]{Knuth}{Donald Ervin}
 
 % a data deve ser a da defesa; se nao especificada, são gerados
@@ -77,7 +81,7 @@
 % \renewcommand{\nominataPRAPGname}{Pr{\'o}-Reitora Adjunta de P{\'o}s-Gradua{\c{c}}{\~a}o}
 % \renewcommand{\nominataDir}{Prof.~Philippe Olivier Alexandre Navaux}
 % \renewcommand{\nominataDirname}{Diretor do Instituto de Inform{\'a}tica}
-% \renewcommand{\nominataCoord}{Prof.~Carlos Alberto Heuser}
+\renewcommand{\nominataCoord}{Prof.~Walter Fetter Lages}
 % \renewcommand{\nominataCoordname}{Coordenador do PPGC}
 % \renewcommand{\nominataBibchefe}{Beatriz Regina Bastos Haro}
 % \renewcommand{\nominataBibchefename}{Bibliotec{\'a}ria-chefe do Instituto de Inform{\'a}tica}
@@ -192,6 +196,14 @@ it is because I stood on the shoulders of giants.''\\}
 \chapter{Solução}
 \label{chap:soluction}
 \input{TG2/Chapters/Soluction/Soluction}
+
+\chapter{Análise dos dados coletados}
+\label{chap:results}
+\input{TG2/Chapters/DataAnalysis/DataAnalysis}
+
+\chapter{Conclusão}
+\label{chap:conclusion}
+\input{TG2/Chapters/Conclusion/Conclusion}
 
 % e aqui vai a parte principal
 %

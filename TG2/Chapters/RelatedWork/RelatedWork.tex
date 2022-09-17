@@ -1,5 +1,5 @@
-Nesta seção, são analisados alguns estudos publicados com relação a testes em redes móveis.
-A Tabela \ref{tab:related-works} apresenta um resumo do estudo realizado de trabalhos relacionados apresentados nesta seção.
+Nesta seção, são analisados alguns estudos publicados que apresentam testes em redes móveis.
+A Tabela \ref{tab:related-works} mostra um resumo dos trabalhos relacionados.
 
 \begin{table}[!ht]
 \centering
@@ -43,60 +43,65 @@ A Tabela \ref{tab:related-works} apresenta um resumo do estudo realizado de trab
 \section{\textit{Tutorial on communication between access networks and the 5G core}}
 \label{sec:Dominato}
 
-O estudo publicado por \cite{Dominato2021} cria uma prova de conceito de uma aplicação para testar núcleos \textit{open source} de rede 5G.
+O estudo publicado por \citeonline{Dominato2021} cria uma prova de conceito de uma aplicação para testar núcleos \textit{open source} de rede 5G.
 Para esse estudo, foram escolhidos os grupos de testes de conformidade e robustez.
 As implementações suportadas por esse testador são \textit{free5GC}, \textit{Open5GS} e \textit{OAI}.
 
 Essa prova de conceito simula uma RAN e um ou mais UEs.
-O objetivo do estudo é analisar o comportamento dos diferentes núcleos de rede 5G em dois diferentes cenários. O primeiro cenário executou ações de acordo com o que foi especificado pela 3GPP, através de testes de conformidade. O segundo cenário foi a execução de ações utilizando informações inválidas, forçando o núcleo da rede a contornar essa situação de acordo com o especificado, o que representa os testes de robustez.
+O objetivo do estudo é analisar o comportamento dos diferentes núcleos de rede 5G em dois diferentes cenários.
+O primeiro cenário executa ações de acordo com o que foi especificado pela 3GPP, através de testes de conformidade.
+O segundo cenário executa ações utilizando informações inválidas, forçando o núcleo da rede a contornar essa situação de acordo com o especificado, o que representa os testes de robustez.
 
-Em relação aos testes de conformidade, foram executados 11 diferentes testes, sendo eles teste de registro, autenticação primária e estabelecimento de chave, identificação, transporte, modo de segurança, atualização de configuração genérica do UE, gerenciamento de sessão, gerenciamento de interface, transporte de mensagens NAS, gerenciamento de contexto do UE e gerenciamento de sessão do PDU.
+Em relação aos testes de conformidade, são executados 11 diferentes testes, sendo eles teste de registro, autenticação primária e estabelecimento de chave, identificação, transporte, modo de segurança, atualização de configuração genérica do UE, gerenciamento de sessão, gerenciamento de interface, transporte de mensagens NAS, gerenciamento de contexto do UE e gerenciamento de sessão do PDU.
 Foi utilizada a \textit{Release 16} do 3GPP como base para a execução dos testes.
 O núcleo \textit{Open5GS} foi aprovado em todos os testes de conformidade, enquanto que o \textit{OAI} e o \textit{free5GC} não responderam de acordo com a especificação no teste de atualização de configuração genérica do UE.
 
 Em relação aos testes de robustez, foram executados 7 testes, sendo eles teste de registro, autenticação, segurança, seleção SMF, seleção UPF, validação do fluxo NAS e gerenciamento de interface.
 No teste de registro, dois casos foram avaliados. No primeiro caso, o equipamento de usuário enviou uma requisição de registro sem o identificador do equipamento, que é um campo mandatório. No segundo caso, o equipamento enviou a requisição com as informações criptografadas.
-No teste de autenticação, foram realizadas duas operações incorretas, o primeiro teste foi realizado enviando informações inválidas como resposta no fluxo de autenticação, enquanto que o segundo teste foi forçando uma falha de sincronização entre o núcleo e o UE.
+No teste de autenticação, são realizadas duas operações incorretas. O primeiro teste foi realizado enviando informações inválidas como resposta no fluxo de autenticação, enquanto que o segundo teste foi forçando uma falha de sincronização entre o núcleo e o UE.
 Para o teste de segurança, foram testadas duas configurações de segurança inválidas, sendo elas responder a uma solicitação de segurança sem enviar um parâmetro obrigatório na resposta e responder à solicitação sem retransmitir as informações de segurança da requisição.
 Os teste de seleção SMF e seleção UPF representam um equipamento de usuário fazendo uma requisição para estabelecer um fluxo PDU, porém enviando informações mandatórias inválidas.
 O teste de validação do fluxo NAS visa verificar se o núcleo da rede se comporta da forma esperada caso a requisição de estabelecimento de sessão PDU seja realizada enviando as informações necessárias em uma ordem incorreta.
 Por fim, o teste de gerenciamento de interface simula o registro de uma nova RAN na rede 5G, porém enviando informações inválidas para o AMF, o qual deve rejeitar essa requisição. 
 
 O estudo considera que todos os núcleos testados obtiveram um desempenho satisfatório para a operação dentro da normalidade. Entretanto, dentre os três núcleos analisados, o \textit{OAI} foi considerado pelos autores do artigo como o núcleo com a implementação menos madura até o momento da publicação.
-Mais detalhes sobre os resultados dos testes podem ser vistos na tabela \textit{Table II} de \cite[p.~10]{Dominato2021} para os testes de conformidade e \textit{Table III} de \cite[p.~11]{Dominato2021} para os testes de desempenho.
+Mais detalhes sobre os resultados dos testes de conformidade podem ser vistos na tabela \textit{Table II} de \citeonline[p.~10]{Dominato2021} e para os testes de desempenho, \textit{Table III} de \citeonline[p.~11]{Dominato2021}.
 
-Os testes realizados no artigo de \cite{Dominato2021} são de extrema importância para avaliar o funcionamento de um núcleo de rede 5G.
+Os testes realizados no artigo de \citeonline{Dominato2021} são de extrema importância para avaliar o funcionamento de um núcleo de rede 5G.
 Como descrito brevemente no artigo, essa implementação de prova de conceito também suporta a realização de um teste onde múltiplos equipamentos de usuário são conectados no núcleo da rede em forma de fila (realizando uma conexão por vez), afim de avaliar se a implementação em teste do núcleo da rede se comporta de acordo com a especificação em casos onde existam diversos UE conectados na rede.
-Entretanto, não foram executados testes para comparar o desempenho dessas implementações de núcleo em casos onde uma grande quantidade de UEs se conectem ao núcleo de forma paralela, onde múltiplos equipamentos de usuário façam requisições de registro e autenticação em um curto intervalo de tempo.
+Entretanto, não foram executados testes para comparar o desempenho dessas implementações de núcleo nos casos em que uma grande quantidade de UEs se conectem ao núcleo de forma paralela, onde múltiplos equipamentos de usuário façam requisições de registro e autenticação em um curto intervalo de tempo.
 Esse teste é importante para avaliar qual implementação possui a melhor performance em casos de alta carga de trabalho.
 
 \section{\textit{Realizing 5G Network Slicing Provisioning with Open Source Software}}
 
-O artigo de \cite{Lee2021} trata sobre fatiamentos de rede 5G utilizando-se da implementação \textit{open source free5GC} do núcleo de rede 5G.
+O artigo de \citeonline{Lee2021} trata sobre fatiamentos de rede 5G utilizando-se da implementação \textit{open source free5GC} do núcleo de rede 5G.
 A ideia de fatiar uma rede permite criar múltiplas redes lógicas sobre uma única rede física e cada rede lógica tendo suas próprias funções de rede e configurações.
-\cite{Lee2021} executa cinco experimentos, em duas categorias distintas de testes. Primeiramente, os autores executam um experimento de conformidade, verificando se o fatiamento da rede 5G está ocorrendo conforme o especificado. Após, são executados quatro experimentos medindo o desempenho do núcleo dessa implementação de rede 5G utilizando-se do fatiamento de rede.
+\citeonline{Lee2021} executa cinco experimentos, em duas categorias distintas de testes. Primeiramente, executam um experimento de conformidade, verificando se o fatiamento da rede 5G está ocorrendo conforme o especificado. Após, são executados quatro experimentos medindo o desempenho do núcleo dessa implementação de rede 5G utilizando o fatiamento de rede.
 
-O primeiro experimento executado pelos autores tem como objetivo verificar se os pacotes de dados trafegam por todos os nós na ordem correta, conforme a especificação.
-Para isso, utilizaram ferramentas de análise de rede, como o \textit{tcpdump}\footnote{\url{https://www.tcpdump.org}}.
-O teste foi bem sucedido, permitindo que os testes de desempenho pudessem ser realizados.
+Na primeira etapa do trabalho foi executado o primeiro experimento.
+Este experimento tem como objetivo verificar se os pacotes de dados trafegam pela rede na ordem correta, conforme a especificação.
+Para isso, utilizaram ferramentas de análise de rede, como o \textit{tcpdump}\footnote{https://www.tcpdump.org}.
+O teste foi bem sucedido, permitindo que os próximos testes de desempenho pudessem ser realizados.
 
+Com os resultados do primeiro experimento, \citeonline{Lee2021} iniciaram a execução dos quatro experimentos restantes.
 O segundo experimento teve como objetivo medir a qualidade da rede utilizando aplicações específicas para sobrecarregar a rede de dados e medir a vazão da rede 5G.
+
 O terceiro experimento mediu o desempenho das operações de fatiamento de rede simulando um ambiente de banda larga móvel melhorada, onde o UE executa serviços que geram um alto tráfego de dados na rede.
 Nesse experimento, foi observado o tráfego de dados em cada dispositivo e fatia da rede.
 
-O quarto experimento simulou uma rede de sensores, onde diversos dispositivos IoT publicaram informações através do protocolo Message Queuing Telemetry Transport (MQTT)\footnote{\url{https://mqtt.org}} e diversas aplicações se inscreveram para receber as mensagens enviadas.
+O quarto experimento simulou uma rede de sensores, onde diversos dispositivos IoT publicaram informações através do protocolo Message Queuing Telemetry Transport (MQTT)\footnote{https://mqtt.org} e diversas aplicações se inscreveram para receber as mensagens enviadas.
 Foram coletadas métricas de latência, perda de pacotes, uso de CPU e tempo de execução para cada experimento realizado, variando-se a quantidade de dispositivos e aplicações interagindo com a rede.
-Constatou-se que a latência aumentava gradativamente a cada aumento na quantidade de conexões, assim como em certo momento houve perda de pacotes devido à sobrecarga da rede.
+Constatou-se que a latência aumentava gradativamente a cada aumento na quantidade de conexões, havendo em certo momento perda de pacotes devido à sobrecarga da rede.
 
 O quinto experimento consistiu em criar fatias de rede variando-se a quantidade de funções de rede.
 O objetivo desse experimento foi simular serviços de diferentes complexidades, medindo-se a latência gerada ao adicionar mais funções de rede.
 
-Os experimentos executados por \cite{Lee2021} são muito importantes para analisar como a sobrecarga de redes móveis afeta o desempenho de redes 5G fatiadas.
+Os experimentos executados por \citeonline{Lee2021} são muito importantes para analisar como a sobrecarga de redes móveis afeta o desempenho de redes 5G fatiadas.
 Entretanto, esse artigo realizou os experimentos sobre o plano de usuário da rede, não levando em consideração quanto o plano de controle da rede foi afetado.
 
 \section{\textit{Delay metrics and delay characteristics: A study of four Swedish HSDPA+ and LTE networks}}
 
-O estudo de \cite{Garcia2015} realiza testes de desempenho no plano de usuário de redes móveis reais de gerações passadas, sendo elas 3.5G e LTE, com o objetivo de comparar o ganho de desempenho da rede LTE em relação à rede 3.5G em diferentes cenários e operadoras.
+O estudo de \citeonline{Garcia2015} realiza testes de desempenho no plano de usuário de redes móveis reais de gerações passadas, sendo elas 3.5G e LTE, com o objetivo de comparar o ganho de desempenho da rede LTE em relação à rede 3.5G em diferentes cenários e operadoras.
 As métricas coletadas pelo estudo foram latência e largura de banda das redes analisadas.
 Também foi observado o tempo de carregamento de páginas na internet, simulando o uso real da rede.
 
@@ -104,44 +109,44 @@ Cada teste realizado foi executado em dois diferentes cenários.
 No primeiro cenário, apenas o serviço usado nos testes estava gerando tráfego de dados na rede móvel, reduzindo-se as interferências externas.
 No segundo cenário, um tráfego de dados de fundo foi gerado, utilizando o protocolo \textit{Transmission Control Protocol} (TCP) com o intuito de sobrecarregar o adaptador de rede utilizado, simulando um equipamento de usuário real, que possui diversos serviços dividindo os recursos de rede do UE.
 
-O estudo de \cite{Garcia2015} analisa somente o tráfego de dados em redes móveis, verificando o comportamento das redes em uso normal e com tráfego de fundo.
+Este estudo analisa somente o tráfego de dados em redes móveis, verificando o comportamento das redes em uso normal e com tráfego de fundo.
 Uma vez que as redes testadas foram redes reais de quatro operadoras locais, entende-se as limitações do estudo e sabe-se que a coleta de métricas relacionadas ao plano de controle da rede não seria possível.
-Devido a limitações na realização de testes em redes reais, os autores deste estudo não puderam realizar testes de desempenho durante o processo de ingresso na rede móvel, com intuito de avaliar o plano de controle.
+Devido a limitações na realização de testes em redes reais, os autores não puderam realizar testes de desempenho durante o processo de ingresso na rede móvel, com intuito de avaliar o plano de controle.
 
 \section{\textit{IoTBench: Towards a Benchmark for Low-power Wireless Networking}}
 
-O trabalho de \cite{Boano2018} propõe uma arquitetura para o desenvolvimento de uma aplicação de \textit{benchmark} para testes de desempenho em redes sem fios de baixa potência.
+O trabalho de \citeonline{Boano2018} propõe uma arquitetura para o desenvolvimento de uma aplicação de \textit{benchmark} para testes de desempenho em redes sem fios de baixa potência.
 As redes sem fios de baixa potência são muito importantes para redes de sensoreamento, como as redes de dispositivos IoT.
 Devido à ausência de aplicações especializadas para a avaliação desse tipo de rede, os autores sugerem uma arquitetura para um testador de desempenho para redes de baixa potência.
 
-O objetivo do trabalho de \cite{Boano2018} é criar uma interface padrão para testes em redes de baixa potência. Os autores consideram como seus principais usuários pesquisadores, empresas e consumidores.
+O objetivo do trabalho de \citeonline{Boano2018} é criar uma interface padrão para testes em redes de baixa potência. Os autores consideram como seus principais usuários pesquisadores, empresas e consumidores.
 Pesquisadores poderiam utilizar essa ferramenta para comparar o desempenho de novos protocolos em relação aos protocolos já disponíveis no mercado.
 Empresas usariam essa ferramenta para exibir as vantagens de seus protocolos proprietários em relação aos concorrentes.
 Consumidores poderiam utilizar os dados disponibilizados pela ferramenta para avaliar qual protocolo existente no mercado melhor iria satisfazer as necessidades da rede que se deseja implantar.
 
-Os autores desse trabalho definem 3 classes de parâmetros e métricas a serem considerados, sendo eles os parâmetros de entrada, as métricas de saída e as métricas observadas.
+Os autores desse trabalho definem três classes de parâmetros e métricas a serem considerados, sendo eles os parâmetros de entrada, as métricas de saída e as métricas observadas.
 Os parâmetros de entrada são informações providas pelo usuário que são independentes do protocolo a ser testado e irão definir como o testador realizará seus testes. Como exemplo de parâmetros, os autores citam a quantidade de dispositivos simulados na rede ou a carga de tráfego na rede.
 As métricas de saída são definidas pelos autores como os valores obtidos como resultado dos testes executados. Exemplos de métricas podem ser a taxa de entrega de pacotes ou o consumo de energia do protocolo. Os valores dessas métricas são determinados pelo comportamento do protocolo testado.
-As métricas observadas, assim como as métricas de saída, são valores obtidos pelo usuário como resultado dos testes executados. Essas métricas caracterizam o ambiente onde os testes foram executados e podem ser interferências externas ou a quantidade de pessoas presentes durante a execução dos testes.
+As métricas observadas são valores obtidos pelo usuário como resultado dos testes executados. Essas métricas caracterizam o ambiente onde os testes foram executados, podendo ser interferências externas, como a quantidade de pessoas presentes durante a execução dos testes.
 
-O trabalho de \cite{Boano2018} não está diretamente relacionado com a proposta do presente trabalho de graduação.
-Entretanto, a sugestão de arquitetura e métricas utilizadas para a realização de testes de desempenho em redes de baixa potência podem ser reaproveitadas e adaptadas na proposta desta pesquisa.
+O trabalho de \citeonline{Boano2018} não está diretamente relacionado com a proposta do presente trabalho de graduação.
+Entretanto, a sugestão de arquitetura e métricas utilizadas para a realização de testes de desempenho em redes de baixa potência podem ser reaproveitadas e adaptadas na proposta da presente pesquisa.
 
 \section{\textit{Performance Test of LTE-R Railway Wireless Communication at High-Speed (350 km/h) Environments}}
 
-\cite{MahnSuk2018} descrevem o conceito de \textit{LTE-Railway} (LTE-R) como uma categoria de redes móveis de quarta geração para operar com equipamentos de usuário em alta velocidade.
+\citeonline{MahnSuk2018} descrevem o conceito de \textit{LTE-Railway} (LTE-R) como uma categoria de redes móveis de quarta geração para operar com equipamentos de usuário em alta velocidade.
 Nesse estudo, os autores realizam testes sobre uma rede móvel LTE-R em uma linha férrea construída pelo \textit{Korea Railroad Research Institute}, na Coréia do Sul, onde um trem de alta velocidade percorre um trajeto, possuindo trechos ao ar livre e dentro de túnel.
-Redes LTE-R são importantes para a segurança em viagens de trens, devido à probabilidade de descarrilhamentos ou terrorismo, além de melhorar a qualidade dos serviços prestados para os passageiros a bordo dos trens.
+Redes LTE-R são importantes para a segurança em viagens de trens, devido à probabilidade de descarrilhamentos ou terrorismo, além de melhorar a qualidade dos serviços prestados para os passageiros a bordo.
 
 Neste estudo, são realizados testes de cobertura da rede e potência de sinal, tempo para iniciar uma chamada telefônica, taxa de sucesso de \textit{handover}, taxa de sucesso de recebimento de chamadas, entre outros.
-Para cada tipo de teste, foram realizadas 5 medições e os resultados foram adicionados em tabelas para melhor visualização do leitor.
+Para cada tipo de teste, foram realizadas 5 medições e os resultados foram adicionados em tabelas para melhor visualização.
 Os testes de cobertura da rede e potência do sinal visam medir a qualidade do sinal no percurso da ferrovia.
 O teste de tempo para iniciar uma chamada telefônica mede o tempo necessário para se conectar com os serviços de voz para chamadas de emergência.
 \textit{Handover} é o nome dado ao processo de troca de antenas por um equipamento de usuário, causado principalmente pela mobilidade do UE. Sendo assim, a taxa de sucesso de \textit{handover} mede as interrupções de serviço devido à constante troca de antenas causada pela rápida movimentação do trem.
 A taxa de sucesso de recebimento de chamadas é medida através da capacidade de um terminal telefônico do trem de receber chamadas durante o percurso do trem.
-Para cada um dos testes, um critério de aceitação foi definido de acordo com a especificação das redes LTE-R. Todos os testes realizados obtiveram bons resultados de acordo com a especificação. Mais detalhes sobre os testes podem ser vistos em \cite{MahnSuk2018}.
+Para cada um dos testes, um critério de aceitação foi definido de acordo com a especificação das redes LTE-R. Todos os testes realizados obtiveram bons resultados de acordo com a especificação. Mais detalhes sobre os testes podem ser vistos em \citeonline{MahnSuk2018}.
 
-O trabalho de \cite{MahnSuk2018} se relaciona com a proposta do presente trabalho de graduação ao medir o tempo de \textit{handover} nos UEs.
+O trabalho de \citeonline{MahnSuk2018} se relaciona com a proposta do presente trabalho de graduação ao medir o tempo de \textit{handover} nos UEs.
 O cálculo dessa métrica mede o tempo entre o recebimento do último pacote de dados da antena anterior e o recebimento do primeiro pacote de dados da nova antena \cite{Tayyab2019}.
 Sendo assim, essa métrica inclui o tempo de desconexão de uma antena e conexão da outra, que inclui a latência causada pela autenticação do UE.
 Essa latência será medida no presente trabalho e o método usado será descrito na Seção \ref{chap:soluction}.

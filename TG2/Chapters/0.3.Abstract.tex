@@ -1,0 +1,11 @@
+The present work develops a proof of concept of a module to run performance tests on 5G network core implementations.
+The main goal of this work is to analyze how the different open source implementations of the 5G network cores behave, such as free5GC, Open5GS and OpenAirInterface, for the execution of procedures at scale.
+To answer this problem, a brief summary of the evolution of mobile networks was made, focusing on software implementations of 5G network cores.
+Next, the related works are presented, as well as the differences between them and the present research.
+Afterwards, a software architecture was developed, creating an extension module for the my5G-RANTester to run performance tests on these open source implementations of 5G network cores.
+Experiments were performed on these implementations.
+In the first phase of the experiments, a test was carried out to analyze the average connection time of each user equipment with each tested core. In the second stage of the experiment, the data plane throughput between the user equipment and the network core was measured.
+Among the main results obtained, it was possible to observe that free5GC presents better performance in relation to the throughput available to user equipments, while Open5GS presents more stability during the registration process of multiple user equipments.
+This work has two important theoretical contributions to the literature. The first contribution is the aggregation of knowledge about performance testing in mobile networks, while the second is related to the stability and limitations of 5G core implementations in software.
+The main practical contribution of this work is the development of a module to run performance tests on 5G network cores.
+As suggestions for future research, it is possible to advance the investigation on experiments in commercial cores or to replicate the tests in easily scalable environments.

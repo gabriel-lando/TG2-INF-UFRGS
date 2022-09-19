@@ -1,10 +1,13 @@
 Nesta seção, são analisados alguns estudos publicados que apresentam testes em redes móveis.
 A Tabela \ref{tab:related-works} mostra um resumo dos trabalhos relacionados.
 
-\begin{table}[!ht]
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
 \centering
 \caption{Tabela comparando os trabalhos relacionados}
 \label{tab:related-works}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lllll}
 \hline
 \multicolumn{1}{c}{\textbf{Autor}} &
@@ -12,32 +15,33 @@ A Tabela \ref{tab:related-works} mostra um resumo dos trabalhos relacionados.
   \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Tipos de\\ teste\end{tabular}}} &
   \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Códigos\\ testados\end{tabular}}} &
   \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Protocolos\\ testados\end{tabular}}} \\ \hline
-\cite{Dominato2021} &
+\citeonline{Dominato2021} &
   5G &
   \begin{tabular}[c]{@{}l@{}}Conformidade\\ e robustez\end{tabular} &
   \textit{\begin{tabular}[c]{@{}l@{}}free5GC,\\ Open5GS\\ e OAI\end{tabular}} &
   NAS e NGAP \\ \hline
-\cite{Lee2021} &
+\citeonline{Lee2021} &
   5G &
   \begin{tabular}[c]{@{}l@{}}Conformidade\\ e desempenho\end{tabular} &
   \textit{free5GC} &
   Fluxo PDU \\ \hline
-\cite{Garcia2015} &
+\begin{tabular}[c]{@{}l@{}}Garcia, Alfredsson and\\ Brunstrom (2015)\end{tabular} &
   \begin{tabular}[c]{@{}l@{}}HSDPA+\\ e LTE\end{tabular} &
   Desempenho &
   Não se aplica &
   Fluxo PDU \\ \hline
-\cite{Boano2018} &
+\citeonline{Boano2018} &
   IoT &
   Desempenho &
   Não se aplica &
   Não se aplica \\ \hline
-\cite{MahnSuk2018} &
+\citeonline{MahnSuk2018} &
   LTE-R &
   Desempenho &
   Não se aplica &
   Não se aplica \\ \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \section{\textit{Tutorial on communication between access networks and the 5G core}}
@@ -57,10 +61,10 @@ Foi utilizada a \textit{Release 16} do 3GPP como base para a execução dos test
 O núcleo \textit{Open5GS} foi aprovado em todos os testes de conformidade, enquanto que o \textit{OAI} e o \textit{free5GC} não responderam de acordo com a especificação no teste de atualização de configuração genérica do UE.
 
 Em relação aos testes de robustez, foram executados 7 testes, sendo eles teste de registro, autenticação, segurança, seleção SMF, seleção UPF, validação do fluxo NAS e gerenciamento de interface.
-No teste de registro, dois casos foram avaliados. No primeiro caso, o equipamento de usuário enviou uma requisição de registro sem o identificador do equipamento, que é um campo mandatório. No segundo caso, o equipamento enviou a requisição com as informações criptografadas.
+No teste de registro, dois casos foram avaliados. No primeiro caso, o UE enviou uma requisição de registro sem o identificador do UE, que é um campo mandatório. No segundo caso, o UE enviou a requisição com as informações criptografadas.
 No teste de autenticação, são realizadas duas operações incorretas. O primeiro teste foi realizado enviando informações inválidas como resposta no fluxo de autenticação, enquanto que o segundo teste foi forçando uma falha de sincronização entre o núcleo e o UE.
 Para o teste de segurança, foram testadas duas configurações de segurança inválidas, sendo elas responder a uma solicitação de segurança sem enviar um parâmetro obrigatório na resposta e responder à solicitação sem retransmitir as informações de segurança da requisição.
-Os teste de seleção SMF e seleção UPF representam um equipamento de usuário fazendo uma requisição para estabelecer um fluxo PDU, porém enviando informações mandatórias inválidas.
+Os teste de seleção SMF e seleção UPF representam um UE fazendo uma requisição para estabelecer um fluxo PDU, porém enviando informações mandatórias inválidas.
 O teste de validação do fluxo NAS visa verificar se o núcleo da rede se comporta da forma esperada caso a requisição de estabelecimento de sessão PDU seja realizada enviando as informações necessárias em uma ordem incorreta.
 Por fim, o teste de gerenciamento de interface simula o registro de uma nova RAN na rede 5G, porém enviando informações inválidas para o AMF, o qual deve rejeitar essa requisição. 
 
@@ -68,8 +72,8 @@ O estudo considera que todos os núcleos testados obtiveram um desempenho satisf
 Mais detalhes sobre os resultados dos testes de conformidade podem ser vistos na tabela \textit{Table II} de \citeonline[p.~10]{Dominato2021} e para os testes de desempenho, \textit{Table III} de \citeonline[p.~11]{Dominato2021}.
 
 Os testes realizados no artigo de \citeonline{Dominato2021} são de extrema importância para avaliar o funcionamento de um núcleo de rede 5G.
-Como descrito brevemente no artigo, essa implementação de prova de conceito também suporta a realização de um teste onde múltiplos equipamentos de usuário são conectados no núcleo da rede em forma de fila (realizando uma conexão por vez), afim de avaliar se a implementação em teste do núcleo da rede se comporta de acordo com a especificação em casos onde existam diversos UE conectados na rede.
-Entretanto, não foram executados testes para comparar o desempenho dessas implementações de núcleo nos casos em que uma grande quantidade de UEs se conectem ao núcleo de forma paralela, onde múltiplos equipamentos de usuário façam requisições de registro e autenticação em um curto intervalo de tempo.
+Como descrito brevemente no artigo, essa implementação de prova de conceito também suporta a realização de um teste onde múltiplos UEs são conectados no núcleo da rede em forma de fila (realizando uma conexão por vez), afim de avaliar se a implementação em teste do núcleo da rede se comporta de acordo com a especificação em casos onde existam diversos UE conectados na rede.
+Entretanto, não foram executados testes para comparar o desempenho dessas implementações de núcleo nos casos em que uma grande quantidade de UEs se conectem ao núcleo de forma paralela, onde múltiplos UEs façam requisições de registro e autenticação em um curto intervalo de tempo.
 Esse teste é importante para avaliar qual implementação possui a melhor performance em casos de alta carga de trabalho.
 
 \section{\textit{Realizing 5G Network Slicing Provisioning with Open Source Software}}
@@ -89,7 +93,7 @@ O segundo experimento teve como objetivo medir a qualidade da rede utilizando ap
 O terceiro experimento mediu o desempenho das operações de fatiamento de rede simulando um ambiente de banda larga móvel melhorada, onde o UE executa serviços que geram um alto tráfego de dados na rede.
 Nesse experimento, foi observado o tráfego de dados em cada dispositivo e fatia da rede.
 
-O quarto experimento simulou uma rede de sensores, onde diversos dispositivos IoT publicaram informações através do protocolo Message Queuing Telemetry Transport (MQTT)\footnote{https://mqtt.org} e diversas aplicações se inscreveram para receber as mensagens enviadas.
+O quarto experimento simulou uma rede de sensores, onde diversos dispositivos IoT publicaram informações através do protocolo \textit{Message Queuing Telemetry Transport} (MQTT)\footnote{https://mqtt.org} e diversas aplicações se inscreveram para receber as mensagens enviadas.
 Foram coletadas métricas de latência, perda de pacotes, uso de CPU e tempo de execução para cada experimento realizado, variando-se a quantidade de dispositivos e aplicações interagindo com a rede.
 Constatou-se que a latência aumentava gradativamente a cada aumento na quantidade de conexões, havendo em certo momento perda de pacotes devido à sobrecarga da rede.
 
@@ -107,7 +111,7 @@ Também foi observado o tempo de carregamento de páginas na internet, simulando
 
 Cada teste realizado foi executado em dois diferentes cenários.
 No primeiro cenário, apenas o serviço usado nos testes estava gerando tráfego de dados na rede móvel, reduzindo-se as interferências externas.
-No segundo cenário, um tráfego de dados de fundo foi gerado, utilizando o protocolo \textit{Transmission Control Protocol} (TCP) com o intuito de sobrecarregar o adaptador de rede utilizado, simulando um equipamento de usuário real, que possui diversos serviços dividindo os recursos de rede do UE.
+No segundo cenário, um tráfego de dados de fundo foi gerado, utilizando o protocolo \textit{Transmission Control Protocol} (TCP) com o intuito de sobrecarregar o adaptador de rede utilizado, simulando um UE real, que possui diversos serviços dividindo os recursos de rede do UE.
 
 Este estudo analisa somente o tráfego de dados em redes móveis, verificando o comportamento das redes em uso normal e com tráfego de fundo.
 Uma vez que as redes testadas foram redes reais de quatro operadoras locais, entende-se as limitações do estudo e sabe-se que a coleta de métricas relacionadas ao plano de controle da rede não seria possível.
@@ -134,7 +138,7 @@ Entretanto, a sugestão de arquitetura e métricas utilizadas para a realizaçã
 
 \section{\textit{Performance Test of LTE-R Railway Wireless Communication at High-Speed (350 km/h) Environments}}
 
-\citeonline{MahnSuk2018} descrevem o conceito de \textit{LTE-Railway} (LTE-R) como uma categoria de redes móveis de quarta geração para operar com equipamentos de usuário em alta velocidade.
+\citeonline{MahnSuk2018} descrevem o conceito de \textit{LTE-Railway} (LTE-R) como uma categoria de 4G para operar com UEs em alta velocidade.
 Nesse estudo, os autores realizam testes sobre uma rede móvel LTE-R em uma linha férrea construída pelo \textit{Korea Railroad Research Institute}, na Coréia do Sul, onde um trem de alta velocidade percorre um trajeto, possuindo trechos ao ar livre e dentro de túnel.
 Redes LTE-R são importantes para a segurança em viagens de trens, devido à probabilidade de descarrilhamentos ou terrorismo, além de melhorar a qualidade dos serviços prestados para os passageiros a bordo.
 
@@ -142,7 +146,7 @@ Neste estudo, são realizados testes de cobertura da rede e potência de sinal, 
 Para cada tipo de teste, foram realizadas 5 medições e os resultados foram adicionados em tabelas para melhor visualização.
 Os testes de cobertura da rede e potência do sinal visam medir a qualidade do sinal no percurso da ferrovia.
 O teste de tempo para iniciar uma chamada telefônica mede o tempo necessário para se conectar com os serviços de voz para chamadas de emergência.
-\textit{Handover} é o nome dado ao processo de troca de antenas por um equipamento de usuário, causado principalmente pela mobilidade do UE. Sendo assim, a taxa de sucesso de \textit{handover} mede as interrupções de serviço devido à constante troca de antenas causada pela rápida movimentação do trem.
+\textit{Handover} é o nome dado ao processo de troca de antenas por um UE, causado principalmente pela mobilidade do UE. Sendo assim, a taxa de sucesso de \textit{handover} mede as interrupções de serviço devido à constante troca de antenas causada pela rápida movimentação do trem.
 A taxa de sucesso de recebimento de chamadas é medida através da capacidade de um terminal telefônico do trem de receber chamadas durante o percurso do trem.
 Para cada um dos testes, um critério de aceitação foi definido de acordo com a especificação das redes LTE-R. Todos os testes realizados obtiveram bons resultados de acordo com a especificação. Mais detalhes sobre os testes podem ser vistos em \citeonline{MahnSuk2018}.
 

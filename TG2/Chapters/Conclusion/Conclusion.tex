@@ -1,0 +1,27 @@
+O presente trabalho atinge a proposta inicial, desenvolvendo uma ferramenta para testes de desempenho de redes móveis 5G de código aberto, além de avaliar o desempenho em dois distintos cenários com duas implementações de núcleo 5G existentes.
+As descobertas e limitações encontradas podem ser úteis para o desenvolvimento dos núcleos. Da mesma forma, essa ferramenta pode ser utilizada para avaliar outros núcleos não testados no presente trabalho.
+
+Este trabalho apresenta duas principais contribuições teóricas. A primeira é com relação aos testes de desempenho, principalmente sobre redes móveis.
+A implementação do módulo de execução dos testes de desempenho e análise dos dados coletado traz discussões relevantes sobre a utilidade do uso de testes de desempenho durante o desenvolvimento de software.
+Essas discussões são de extrema relevância para a área de Engenharia de Software, mostrando que os testes de desempenho ajudam a validar implementações de software para operarem de maneira correta sobre alta carga de trabalho.
+
+A segunda contribuição teórica deste trabalho é em relação à estabilidade das atuais implementações de código aberto de núcleos de rede 5G.
+As três implementações avaliadas possuem grandes limitações em relação ao desempenho em escala, tornando sua implantação em redes reais inviável neste momento.
+Esse trabalho demonstra que a implementação OAI, sendo a menos madura delas, não conseguiu rodar nenhum dos testes de desempenho devido a suas limitações.
+Por outro lado, as outras duas implementações avaliadas apresentam diversas limitações que fizeram com que o módulo de testes de desempenho desenvolvido fosse adaptado para funcionar sobre as limitações encontradas e descritas no decorrer do trabalho.
+
+Este trabalho também possui contribuições práticas, ao desenvolver um módulo para ser acoplado no testador \textit{my5G-RANTester} de núcleos 5G.
+Este módulo está disponível no repositório de código do projeto PORVIR-5G e é aberto para a comunidade.
+Dessa forma, é possível utilizar a implementação do testador disponível para realizar testes sobre novas versões das implementações existentes de núcleos 5G e para outras implementações futuras.
+
+Este trabalho possui algumas limitações.
+Dentre elas, pode-se citar as limitações dos núcleos testados, fazendo com que os testes em escala fossem limitados a uma menor quantidade de UEs se registrando, estabelecendo uma sessão PDU e trafegando dados.
+Outra limitação relevante é em relação à execução do testador na mesma máquina virtual onde o núcleo foi executado.
+Ao executar todo o ambiente de testes na mesma máquina que está sendo executado o núcleo da rede 5G, os recursos de hardware disponíveis são divididos entre os processos em execução.
+Dessa forma, o uso de memória RAM e processador pelo testador para gerenciar as diversas conexões de UEs e pelos UEs para executar testes de largura de banda reduz a quantidade de recursos disponíveis para o núcleo, afetando o seu desempenho.
+
+O presente trabalho abre oportunidades para futuros experimentos em relação ao desempenho de núcleos de redes 5G.
+Um exemplo seria o teste sobre outras implementações de núcleos de redes 5G de código aberto não avaliadas no presente trabalho.
+Outro tópico para pesquisas seria avaliar o desempenho de implementações comerciais de núcleos de redes 5G.
+Além disso, pode-se utilizar a implementação atual do testador, executando testes sobre ambientes de fácil escalabilidade, permitindo executar o testador em uma máquina virtual separada da máquina que está executando o núcleo a ser testado.
+Dessa forma, o uso de recursos do testador não deve afetar a disponibilidade de recursos para o núcleo, tendo resultados mais relevantes em relação ao funcionamento da implementação em teste.

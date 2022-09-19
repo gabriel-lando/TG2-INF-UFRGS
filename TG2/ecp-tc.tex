@@ -110,10 +110,20 @@
 % palavras-chave
 % iniciar todas com letras minúsculas, exceto no caso de abreviaturas
 %
-\keyword{formatação eletrônica de documentos}
-\keyword{\LaTeX}
-\keyword{ABNT}
-\keyword{UFRGS}
+% \keyword{my5G-RANTester}
+% \keyword{Núcleo 5G}
+% \keyword{Teste de desempenho}
+% \keyword{Redes móveis}
+% \keyword{Open5GS}
+% \keyword{free5GC}
+
+\keyword{Redes móveis}
+\keyword{Núcleo 5G}
+\keyword{Teste de desempenho}
+\keyword{\textit{Open5GS}}
+\keyword{\textit{free5GC}}
+\keyword{\textit{my5G-RANTester}}
+
 
 %
 % inicio do documento
@@ -131,9 +141,9 @@
 \begin{flushright}
 \mbox{}\vfill
 {\sffamily\itshape
-``If I have seen farther than others,\\
-it is because I stood on the shoulders of giants.''\\}
---- \textsc{Sir~Isaac Newton}
+``I wanna rock and roll all night\\
+And party every day\\}
+--- \textsc{Gene Simmons and Paul Stanley}
 \end{flushright}
 
 % agradecimentos
@@ -149,18 +159,81 @@ it is because I stood on the shoulders of giants.''\\}
 % resumo na outra língua
 % como parametros devem ser passados o titulo e as palavras-chave
 % na outra língua, separadas por vírgulas
-\begin{englishabstract}{Title in English}{Keywords}
+\begin{englishabstract}{A method for evaluating the performance of open source software implementations of 5G network cores}{Mobile networks. 5G core. Performance tests. Open5GS. free5GC. my5G-RANTester}
 \input{TG2/Chapters/0.3.Abstract}
 \end{englishabstract}
 
 % lista de abreviaturas e siglas
 % o parametro deve ser a abreviatura mais longa
-\begin{listofabbrv}{SPMD}
-        \item[SMP] Symmetric Multi-Processor
-        \item[NUMA] Non-Uniform Memory Access
-        \item[SIMD] Single Instruction Multiple Data
-        \item[SPMD] Single Program Multiple Data
-        \item[ABNT] Associação Brasileira de Normas Técnicas
+\begin{listofabbrv}{Serving GW}
+    \item[1G]       Primeira geração de redes móveis
+    \item[2G]       Segunda geração de redes móveis
+    \item[3G]       Terceira geração de redes móveis
+    \item[3GPP]     \textit{3rd Generation Partnership Project}
+    \item[4G]       Quarta geração de redes móveis
+    \item[5G]       Quinta geração de redes móveis
+    \item[5GC]      \textit{5G Core}
+    \item[5GNR]     \textit{5G New Radio}
+    \item[AF]       \textit{Application Function}
+    \item[AMF]      \textit{Access and Mobility Management Function}
+    \item[API]      \textit{Application Programming Interface}
+    \item[AUSF]     \textit{Authentication Server Function}
+    \item[Bps]      \textit{Bytes} por segundo
+    \item[CN]       \textit{Core Network}
+    \item[CPU]      \textit{Central Processing Unit}
+    \item[eNodeB]   \textit{Evolved Node B}
+    \item[EPC]      \textit{Evolved Packet Core}
+    \item[E-UTRAN]  \textit{Evolved UTRAN}
+    \item[Gbps]     Giga \textit{bits} por segundo
+    \item[gNB]      \textit{gNodeB}
+    \item[GSM]      \textit{Global System for Mobile Communications}
+    \item[HSDPA]    \textit{High-Speed Downlink Packet Access}
+    \item[HSS]      \textit{Home Subscriber Server}
+    \item[IoT]      \textit{Internet of Things}
+    \item[IP]       \textit{Internet Protocol}
+    \item[kbps]     Quilo \textit{bits} por segundo
+    \item[KVM]      \textit{Kernel-based Virtual Machine}
+    \item[LTE]      \textit{Long Term Evolution}
+    \item[LTE-A]    \textit{LTE-Advanced}
+    \item[LTE-R]    \textit{LTE-Railway}
+    \item[Mbps]     Mega \textit{bits} por segundo
+    \item[MME]      \textit{Mobility Management Entity}
+    \item[MQTT]     \textit{Message Queuing Telemetry Transport}
+    \item[ms]       Milissegundos
+    \item[N3IWF]    \textit{Non-3GPP InterWorking Function}
+    \item[NAS]      \textit{Non-Access Stratum}
+    \item[NB]       \textit{Node B}
+    \item[NEF]      \textit{Network Exposure Function}
+    \item[NGAP]     \textit{NG Application Protocol}
+    \item[NRF]      \textit{Network Repository Function}
+    \item[ns]       Nanossegundos
+    \item[NSA]      \textit{Non-Stand Alone}
+    \item[NSSF]     \textit{Network Slice Selection Function}
+    \item[NWDAF]    \textit{Network Data Analytics Function}
+    \item[OAI]      \textit{OpenAirInterface}
+    \item[PCF]      \textit{Policy Control Function}
+    \item[PDN GW]   \textit{Packet Data Network Gateway}
+    \item[PDU]      \textit{Packet Data Unit}
+    \item[PORVIR-5G] \textit{Programmability, Orchestration and Virtualization on 5G networks}
+    \item[PSTN]     \textit{Public Switched Telephone Network}
+    \item[QoS]      Qualidade de serviço
+    \item[RAN]      \textit{Radio Access Network}
+    \item[s]        Segundos
+    \item[SA]       \textit{Stand Alone}
+    \item[SBA]      \textit{Service-based Architecture}
+    \item[Serving GW]  \textit{Serving Gateway}
+    \item[SMF]      \textit{Session Management Function}
+    \item[SMS]      \textit{Short Message Service}
+    \item[TCP]      \textit{Transmission Control Protocol}
+    \item[UDM]      \textit{Unified Data Management}
+    \item[UDP]      \textit{User Datagram Protocol}
+    \item[UE]       \textit{User Equipment}
+    \item[UMTS]     \textit{Universal Mobile Telecommunications System}
+    \item[UPF]      \textit{User Plane Function}
+    \item[UTRAN]    \textit{UMTS Terrestial Radio Network}
+    \item[VoIP]     \textit{Voice over IP}
+    \item[VoLTE]    \textit{Voice over LTE}
+    \item[WCDMA]    \textit{Wide-Band Code-Divison Multiple Access}
 \end{listofabbrv}
 
 % idem para a lista de símbolos
@@ -201,7 +274,7 @@ it is because I stood on the shoulders of giants.''\\}
 \label{chap:results}
 \input{TG2/Chapters/DataAnalysis/DataAnalysis}
 
-\chapter{Conclusão}
+\chapter{Considerações finais e trabalhos futuros}
 \label{chap:conclusion}
 \input{TG2/Chapters/Conclusion/Conclusion}
 

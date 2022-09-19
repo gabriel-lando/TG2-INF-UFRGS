@@ -1,5 +1,5 @@
 
-Para a realização dos experimentos e validação dos resultados foi utilizada uma máquina virtual hospedada no \textit{software Kernel-based Virtual Machine} (KVM) sobre o sistema operacional \textit{TrueNAS Scale}\footnote{https://www.truenas.com/truenas-scale/}.
+Para a realização dos experimentos e validação dos resultados foi utilizada uma máquina virtual hospedada no software \textit{Kernel-based Virtual Machine} (KVM) sobre o sistema operacional \textit{TrueNAS Scale}\footnote{https://www.truenas.com/truenas-scale/}.
 A máquina virtual executa o sistema operacional Ubuntu Server 20.04.4 LTS e possui diferentes configurações de processador e memória RAM, variando entre 4, 6, 8 e 12 núcleos virtuais de um processador \textit{Intel Core i7 8700T}, 4 e 8 GB de memória RAM DDR4-2666 e um disco virtual de 64 GB armazenado em um SSD M.2 NVMe.
 Detalhes resumidos da máquina virtual podem ser consultados na Tabela \ref{tab:vm-config}.
 
@@ -36,12 +36,12 @@ Neste experimento, também foram coletadas as métricas de uso de processador, m
 
 Para esse experimento, foi utilizada a configuração da máquina virtual com 12 núcleos virtuais e 8 GB de memória RAM.
 Em relação às configurações do experimento, foram utilizadas as versões dos núcleos 5G \textit{free5GC} v3.2.1, sendo a mais recente disponível no momento da execução dos experimentos e \textit{Open5GS} v2.3.6, que é a versão recomendada pelos desenvolvedores do testador.
-Para cada núcleo, foram usadas as seguintes configurações do testador: número de gNodeB variando de 1 a 11, com passo de 2, intervalo entre conexões de 100 ms até 500 ms, com passo de 100 ms e cada gNB conectando 100 UEs.
+Para cada núcleo, foram usadas as seguintes configurações do testador: número de gNB variando de 1 a 11, com passo de 2, intervalo entre conexões de 100 ms até 500 ms, com passo de 100 ms e cada gNB conectando 100 UEs.
 Esse experimento foi executado 10 vezes, para obter-se uma quantidade de dados relevantes, onde ruídos externos ao experimento fossem amenizados.
 
 Durante os testes para a realização desse experimento, algumas limitações foram encontradas e devem ser ressaltadas.
 Primeiramente, pretendia-se utilizar a versão do núcleo \textit{free5GC} v3.0.6, que é recomendada pelos desenvolvedores do testador. Entretanto, essa versão do núcleo apresentou falhas após conectar aproximadamente 10 UEs, o que inviabilizaria a execução desse experimento.
-O núcleo \textit{OpenAirInterface} apresentou uma limitação parecida tanto na versão v1.3.0, que é recomendada para o testador, quanto na versão v1.4.0, que é a mais recente disponível até o presente momento, falhando após conectar exatamente 15 UEs.
+O núcleo OAI apresentou uma limitação parecida tanto na versão v1.3.0, que é recomendada para o testador, quanto na versão v1.4.0, que é a mais recente disponível até o presente momento, falhando após conectar exatamente 15 UEs.
 O núcleo \textit{Open5GS} na versão v2.3.6 consegue conectar exatamente 1024 dispositivos simultâneos antes de apresentar erros na função de rede AMF. Sendo assim, foi decidido que o limite de gNBs seria 11, com o total de 1100 UEs sendo conectados, atingindo a limitação desse núcleo.
 
 
@@ -51,13 +51,13 @@ O experimento para medição do desempenho do plano de dados do núcleo 5G consi
 
 Para a execução desse experimento, foi decidido utilizar a versão 2.0 da ferramenta \textit{iPerf} ao invés da versão mais recente devido a capacidade da versão 2.0 suportar múltiplas conexões de clientes em uma única instância do servidor, além de permitir exportar as métricas do experimento em um arquivo de texto separado por vírgula, facilitando o pós processamento dos dados.
 Em relação à máquina virtual utilizada, foram feitos testes variando o número de núcleos virtuais de processador entre 4, 6, 8 e 12 núcleos virtuais e variando a capacidade de memória RAM entre 4 GB e 8 GB. Cada variação na quantidade de núcleos virtuais possuía uma única configuração de memória RAM. Os detalhes das máquinas virtuais estão declarados na Tabela \ref{tab:vm-config}. 
-Nesse experimento, a principal métrica a ser observada é a largura de banda, em \textit{bytes} por segundo, representando a capacidade máxima de tráfego de dados entre o UE e a rede 5G, passando pelo componente do núcleo UPF.
+Nesse experimento, a principal métrica a ser observada é a largura de banda, em \textit{Bytes} por segundo (Bps), representando a capacidade máxima de tráfego de dados entre o UE e a rede 5G, passando pelo componente do núcleo UPF.
 Nesse experimento, também foram coletadas as métricas de uso de processador, memória RAM, disco e rede de todos os componentes do núcleo da rede 5G e do testador, utilizando-se as ferramentas para exportação de métricas dos contêineres \textit{Docker}.
 
-Em relação aos parâmetros usados para a execução do experimento, foi utilizada a configuração de 1, 2, 4, 6, 8 e 10 gNBs com 1 UE cada registrando e conectando o plano de dados antes da execução de cada teste de desempenho. Quanto aos parâmetros da ferramenta \textit{iPerf}, foi definido o tempo de execução do experimento em 60 segundos, reportando as métricas do teste a cada segundo.
+Em relação aos parâmetros usados para a execução do experimento, foi utilizada a configuração de 1, 2, 4, 6, 8 e 10 gNBs com 1 UE cada registrando e conectando o plano de dados antes da execução de cada teste de desempenho. Quanto aos parâmetros da ferramenta \textit{iPerf}, foi definido o tempo de execução do experimento em 60 s, reportando as métricas do teste a cada segundo.
 Os núcleos de rede 5G testados foram o \textit{free5GC} v3.0.6 e o \textit{Open5GS} v2.3.6, ambas recomendadas pelo testador.
 Esse experimento foi executado 16 vezes, para obter-se uma quantidade de dados relevantes, onde ruídos externos ao experimento fossem amenizados.
 
 Algumas limitações foram observadas durante a preparação e execução desse experimento.
 Visto que no experimento anterior foi utilizada a versão mais recente do núcleo \textit{free5GC}, havia a intenção de se utilizar a mesma versão para esse experimento. Porém os tutoriais para a implantação da versão v3.2.1 falharam ao estabelecer as rotas necessárias para o plano de dados, inviabilizando a conexão entre o cliente e o servidor do \textit{iPerf}. Desse modo, foi decidido utilizar uma versão anterior deste núcleo, que havia sido homologada pelos desenvolvedores do testador.
-Nesse experimento, o \textit{OpenAirInterface} apresentou o mesmo problema, com falhas ao estabelecer as rotas entre o UE e a rede 5G nas versões v1.3.0 e v1.4.0, sendo esta a mais recente ate o presente momento. Dessa forma, foi decidido não realizar os experimentos sobre esse núcleo.
+Nesse experimento, o OAI apresentou o mesmo problema, com falhas ao estabelecer as rotas entre o UE e a rede 5G nas versões v1.3.0 e v1.4.0, sendo esta a mais recente ate o presente momento. Dessa forma, foi decidido não realizar os experimentos sobre esse núcleo.

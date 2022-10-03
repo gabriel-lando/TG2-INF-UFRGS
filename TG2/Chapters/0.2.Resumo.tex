@@ -1,12 +1,10 @@
-O presente trabalho desenvolve uma prova de conceito de um módulo para execução de testes de desempenho em implementações de núcleos de redes 5G.
+Com o advento das redes 5G, surgem implementações de código aberto de seus núcleos, que devem seguir uma especificação descrita pela 3GPP.
+Para validar a implementação, é necessário realizar testes sobre esses núcleos de rede 5G.
+O presente trabalho desenvolve uma prova de conceito de um módulo para execução de testes de desempenho em implementações em código aberto de núcleos de redes 5G.
 O objetivo deste trabalho é analisar como se comportam as diferentes implementações de código aberto dos núcleos de rede 5G, \textit{free5GC}, \textit{Open5GS} e \textit{OpenAirInterface}, para a execução de procedimentos em escala.
 Para responder a esse problema, primeiramente foi feito um um breve resumo sobre a evolução das redes móveis, com foco em implementações em software de núcleos de redes 5G.
-A seguir, são apresentados os trabalhos relacionados, assim como as diferenças entre eles e a presente pesquisa.
 Após, uma arquitetura de software foi desenvolvida, criando um módulo de extensão para o testador \textit{my5G-RANTester} para realizar testes de desempenho nessas implementações de código aberto de núcleos de redes 5G.
-Foram executados experimentos sobre essas implementações.
-Na primeira fase dos experimentos, foi feito um teste para analisar o tempo médio de conexão de cada equipamento de usuário com cada núcleo testado. Na segunda etapa do experimento, foi medida a largura de banda do plano de dados entre o equipamento de usuário e o núcleo da rede.
+Foram executados dois distintos experimentos sobre essas implementações, sendo eles medindo o tempo de registro de cada equipamento de usuário e medindo a largura de banda do plano de dados entre o equipamento de usuário e o núcleo da rede.
 Dentre os principais resultados obtidos, foi possível observar que o \textit{free5GC} apresenta melhor desempenho em relação à largura de banda disponível para os equipamentos de usuário, enquanto que o \textit{Open5GS} apresenta mais estabilidade durante o processo de registro de múltiplos equipamentos de usuário.
 Este trabalho possui duas importantes contribuições teóricas para a literatura. A primeira contribuição é a agregação de conhecimento sobre testes de desempenho em redes móveis, enquanto a segunda é relacionada com a estabilidade e limitações das implementações de núcleos 5G em software.
 A principal contribuição prática deste trabalho é o desenvolvimento de um módulo para realizar testes de desempenho em núcleos de rede 5G.
-Como sugestões de futuras pesquisas, é possível avançar a investigação sobre experimentos em núcleos comerciais ou replicar os testes em ambientes de fácil escalabilidade.
-

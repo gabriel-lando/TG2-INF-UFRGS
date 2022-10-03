@@ -1,12 +1,12 @@
 A quinta geração de redes móveis (5G) teve sua especificação inicial disponibilizada em 2017 na \textit{Release 15} da \textit{3rd Generation Partnership Project} (3GPP) \cite{Redana2020}, trazendo diversas melhorias em relação à quarta geração de redes móveis (4G).
 É possível citar como principais melhorias da 5G em relação às gerações anteriores as maiores taxas de transferência de dados, a maior área de cobertura, a menor latência de comunicação, o suporte à maior densidade de dispositivos e a redução no consumo de energia \cite{Ahmad2019}.
 
-Para que seja possível atingir as metas propostas, uma reformulação no núcleo da rede se torna necessária por ser considerado o elemento mais crítico da 5G \cite{Cardoso2020}.
+Para que seja possível atingir as metas propostas, uma reformulação no núcleo da rede se torna necessária por ser considerado o elemento mais crítico da rede 5G \cite{Cardoso2020}.
 O núcleo de uma rede 5G é responsável por estabelecer uma conexão estável e segura entre dispositivos e prover acesso aos serviços disponibilizados pela rede móvel.
 
 Com o objetivo de reduzir os custos de implantação e manutenção das redes móveis, iniciou-se o desenvolvimento de implementações em software do seu núcleo.
 Implementações em software desse componente permitem que atualizações sejam feitas de forma simplificada, possibilitando a correção de falhas descobertas durante a operação da rede. Além disso, facilita a evolução da rede para futuras gerações, sem a necessidade de realizar deslocamento para os locais de instalação dos equipamentos, visto que a atualização pode ser feita de forma remota.
-O hardware utilizado para a implantação dessas redes em software é um equipamento de propósito geral, fabricado em larga escala e com custos reduzidos.
+O hardware utilizado para a implantação dessas redes em software é um equipamento de propósito geral, fabricado em larga escala e com custos reduzidos \cite{Cardoso2020}.
 
 A implementação de redes móveis privadas, sem vínculo com operadoras, se tornou uma opção para simplificar a implantação de redes sem fios em larga escala em ambientes corporativos, principalmente pela facilidade de implementação em máquinas convencionais.
 O conceito de redes móveis privadas surgiu com o advento da Indústria 4.0, que visa transformar a manufatura industrial por meio da digitalização e exploração das potencialidades das novas tecnologias \cite{Rojko2017}.
@@ -22,16 +22,16 @@ Nesse contexto, estão inseridos os testes para averiguar o comportamento dessas
 Como as implementações \textit{open source} não possuem garantias, é preciso executar testes de conformidade e robustez, por exemplo, para garantir que o núcleo da rede se comporte da forma que foi especificado.
 Além disso, é preciso aferir o desempenho das diversas implementações, permitindo avaliar qual hardware seria capaz de rodar a implementação desejada de acordo com a capacidade da rede que se deseja implementar.
 
-Desta forma, o presente trabalho tem como objetivo responder a seguinte questão: como se comportam as diferentes implementações \textit{open source} de núcleo 5G para execução dos procedimentos em escala?
-Esse trabalho aplica o teste de desempenho nos núcleos de rede 5G \textit{free5GC}, \textit{Open5GS} e OAI. Para isso, é proposta e implementada uma arquitetura através de um módulo de extensão do testador \textit{my5G-RANTester}\footnote{https://github.com/my5G/my5G-RANTester} para executar testes de desempenho sobre essas implementações de núcleo 5G.
+Desta forma, o presente trabalho tem como objetivo responder a seguinte questão: como se comportam as diferentes implementações \textit{open source} de núcleo 5G para execução dos procedimentos de registro e qual a largura de banda disponível para uso em escala?
+Esse trabalho aplica o teste de desempenho em algumas das principais implementações de código aberto de núcleos de rede 5G. Para isso, é proposto e implementado um módulo de extensão do testador \textit{my5G-RANTester}\footnote{https://github.com/my5G/my5G-RANTester} para executar testes de desempenho sobre essas implementações de núcleo 5G.
 
 Quanto às contribuições teóricas, este trabalho agrega conhecimento em relação a testes de desempenho, sobretudo em núcleos de redes 5G, trazendo discussões relevantes para a área de desenvolvimento de software.
 Também apresenta as limitações encontradas nas implementações testadas, mostrando a maturidade dessas implementações para uso em escala.
 Em relação às contribuições práticas, este trabalho desenvolve um módulo para ser acoplado em um testador de código aberto de núcleos de rede 5G.
 
-Sendo assim, o trabalho foi dividido nos seguintes capítulos.
+O restante do presente trabalho foi dividido nos seguintes capítulos.
 O capítulo de fundamentação teórica descreve a evolução das redes móveis e traz definições sobre testes em software.
-No capítulo de trabalhos relacionados, é descrito os trabalhos que se assemelham com o presente trabalho, além de demonstrar o que este trabalho difere da literatura atual.
+No capítulo de trabalhos relacionados, são descritos os estudos que se assemelham com o presente trabalho, além de demonstrar como este trabalho difere da literatura atual.
 O capítulo de solução demonstra a arquitetura desenvolvida para execução de experimentos de testes de desempenho, coleta e análise de dados.
-No capítulo de análise dos dados coletados, é discutido os resultados dos experimentos, demonstrando o desempenho e as limitações encontradas nos núcleos testados.
-Por fim, nas considerações finais, é apresentado com mais detalhes as contribuições teóricas e práticas, as limitações encontradas e sugestões de futuros trabalhos a partir destas descobertas.
+No capítulo de análise dos dados coletados, são discutidos os resultados dos experimentos, demonstrando o desempenho e as limitações encontradas nos núcleos testados.
+Por fim, nas considerações finais, são apresentadas com mais detalhes as contribuições teóricas e práticas, as limitações encontradas e sugestões de futuros trabalhos a partir destas descobertas.
